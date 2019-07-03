@@ -36,3 +36,13 @@ string User::getPassword()
 {
     return password;
 }
+
+string User::getSurname()
+{
+    return surname;
+}
+
+string User::getName()
+{
+    return name;
+}

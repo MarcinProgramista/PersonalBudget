@@ -14,6 +14,16 @@ class UserManager
 {
     int idLoggedUser;
     vector <User> users;
+    User giveDataNewUser();
+    int downloadIdNewUser();
+    bool isTheLoingExist(string login);
+
+public:
+    UzytkownikMenedzer(){
+        idLoggedUser = 0;
+    };
+    void registrationUser();
+    void writeOutAllUsers();
 };
 
 #endif // USERMANAGER_H
