@@ -15,15 +15,15 @@ class UserManager
 {
     int idLoggedUser;
     vector <User> users;
-    FileWithUsers fileWithUers;
+    FileWithUsers fileWithUsers;
     User giveDataNewUser();
     int downloadIdNewUser();
     bool isTheLoingExist(string login);
 
 public:
-    UserManager(string nameFileWithUsers):fileWithUers(nameFileWithUsers){
+    UserManager(string nameFileWithUsers):fileWithUsers(nameFileWithUsers){
         idLoggedUser = 0;
-        users = fileWithUers.downloadUsersFromFile();
+        users = fileWithUsers.downloadUsersFromFile();
     };
     void registrationUser();
     void writeOutAllUsers();

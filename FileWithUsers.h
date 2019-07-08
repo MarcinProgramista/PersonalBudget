@@ -8,6 +8,7 @@
 #include <sstream>
 #include <cstdlib>
 
+#include "HelperMethods.h"
 #include "User.h"
 #include "TextFile.h"
 #include "Markup.h"
@@ -22,6 +23,7 @@ class FileWithUsers: public TextFile
 public:
     FileWithUsers(string nameFileWithUsers):TextFile(nameFileWithUsers){};
     vector <User> downloadUsersFromFile();
+    void addUserToFile(User user);
 };
 
 #endif // FILEWITHUSERS_H
