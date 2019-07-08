@@ -7,6 +7,7 @@
 #include <sstream>
 
 #include "User.h"
+#include "FileWithUsers.h"
 
 using namespace std;
 
@@ -14,13 +15,15 @@ class UserManager
 {
     int idLoggedUser;
     vector <User> users;
+    FileWithUsers fileWithUers;
     User giveDataNewUser();
     int downloadIdNewUser();
     bool isTheLoingExist(string login);
 
 public:
-    UzytkownikMenedzer(){
+    UserManager(string nameFileWithUsers):fileWithUers(nameFileWithUsers){
         idLoggedUser = 0;
+        users = fileWithUers.downloadUsersFromFile();
     };
     void registrationUser();
     void writeOutAllUsers();

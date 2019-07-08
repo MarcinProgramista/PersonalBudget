@@ -61,6 +61,7 @@ bool UserManager::isTheLoingExist(string login)
     return false;
 }
 
+
 void UserManager::writeOutAllUsers()
 {
     for (int i = 0; i < users.size(); i++)
