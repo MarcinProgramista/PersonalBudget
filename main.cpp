@@ -7,9 +7,10 @@ using namespace std;
 
 int main()
 {
-    UserManager userManger;
-    userManger.registrationUser();
-    userManger.registrationUser();
+    UserManager userManger("users.xml");
+
+   // userManger.registrationUser();
+    //userManger.registrationUser();
     userManger.writeOutAllUsers();
     return 0;
 }
