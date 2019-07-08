@@ -9,8 +9,8 @@ int main()
 {
     UserManager userManger("users.xml");
 
-   // userManger.registrationUser();
-    //userManger.registrationUser();
+    userManger.registrationUser();
+
     userManger.writeOutAllUsers();
     return 0;
 }
