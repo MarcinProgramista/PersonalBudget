@@ -1,4 +1,6 @@
 PersonalBudget.*
+!PersonalBudget.cpp
+!PersonalBudget.h
 obj/
 plan/
 Markup.*

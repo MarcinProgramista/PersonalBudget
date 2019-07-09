@@ -1,16 +1,16 @@
 #include <iostream>
 #include <windows.h>
-#include "UserManger.h"
+#include "PersonalBudget.h"
 
 
 using namespace std;
 
 int main()
 {
-    UserManager userManger("users.xml");
+    PersonalBudget personalBudget("users.xml");
+    char wybor;
 
-    userManger.registrationUser();
+    personalBudget.writeOutAllUsers();
 
-    userManger.writeOutAllUsers();
     return 0;
 }
