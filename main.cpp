@@ -13,7 +13,7 @@ int main()
     {
         if (personalBudget.isUserLogged()== false)
         {
-
+         cout << "!";
         }
     }
 
