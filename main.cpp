@@ -9,8 +9,14 @@ int main()
 {
     PersonalBudget personalBudget("users.xml");
     char wybor;
+    while (true)
+    {
+        if (personalBudget.isUserLogged()== false)
+        {
 
-    personalBudget.writeOutAllUsers();
+        }
+    }
+
 
     return 0;
 }

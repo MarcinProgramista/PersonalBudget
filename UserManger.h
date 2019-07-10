@@ -27,6 +27,7 @@ public:
     };
     void registrationUser();
     void writeOutAllUsers();
+    int getIdLoggedUser();
 };
 
 #endif // USERMANAGER_H
