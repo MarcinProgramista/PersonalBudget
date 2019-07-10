@@ -1,5 +1,10 @@
 #include "UserManger.h"
 
+int UserManager::getIdLoggedUser()
+{
+    return idLoggedUser;
+}
+
 void UserManager::registrationUser()
 {
     User user = giveDataNewUser();
