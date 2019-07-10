@@ -8,12 +8,12 @@ using namespace std;
 int main()
 {
     PersonalBudget personalBudget("users.xml");
-    char wybor;
+    char choice;
     while (true)
     {
         if (personalBudget.isUserLogged()== false)
         {
-         cout << "!";
+            choice = personalBudget.chooseOpctionFromMainMenu();
         }
     }
 

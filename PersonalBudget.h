@@ -16,6 +16,7 @@ public:
     };
     void writeOutAllUsers();
     bool isUserLogged();
+    char chooseOpctionFromMainMenu();
 };
 
 #endif // PERSONALBUDGET_H
