@@ -12,3 +12,20 @@ bool PersonalBudget::isUserLogged()
     else
         return false;
 }
+
+char PersonalBudget::chooseOpctionFromMainMenu()
+{
+    char choose;
+
+    system("cls");
+    cout << "    >>>  MAIN MENU  <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Registration" << endl;
+    cout << "2. Log in" << endl;
+    cout << "9. Finish work" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Your choice : ";
+    choose = HelperMethods::putTheSign();
+
+    return choose;
+}
