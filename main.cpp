@@ -14,6 +14,22 @@ int main()
         if (personalBudget.isUserLogged()== false)
         {
             choice = personalBudget.chooseOpctionFromMainMenu();
+            switch (choice)
+            {
+            case '1':
+                personalBudget.registrationUser();
+                break;
+            case '2':
+                //ksiazkaAdresowa.logowanieUzytkownika();
+                break;
+            case '9':
+                exit(0);
+                break;
+            default:
+                cout << endl << "There is no such a option in menu." << endl << endl;
+                system("pause");
+                break;
+            }
         }
     }
 

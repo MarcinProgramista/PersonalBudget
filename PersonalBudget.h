@@ -14,6 +14,7 @@ public:
     {
 
     };
+    void registrationUser();
     void writeOutAllUsers();
     bool isUserLogged();
     char chooseOpctionFromMainMenu();

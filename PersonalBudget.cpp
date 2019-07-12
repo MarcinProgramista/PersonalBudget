@@ -5,6 +5,11 @@ void PersonalBudget::writeOutAllUsers()
     userManager.writeOutAllUsers();
 }
 
+void PersonalBudget::registrationUser()
+{
+    userManager.registrationUser();
+}
+
 bool PersonalBudget::isUserLogged()
 {
     if (userManager.getIdLoggedUser() > 0)

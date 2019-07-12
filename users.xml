@@ -21,4 +21,11 @@
 <Name>Ewa</Name>
 <Surname>Czapla</Surname>
 </User>
+<User>
+<UserId>4</UserId>
+<Login>kacper</Login>
+<Password>89</Password>
+<Name>Kacper</Name>
+<Surname>Nizo</Surname>
+</User>
 </Users>
