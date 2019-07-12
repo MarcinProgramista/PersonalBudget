@@ -10,6 +10,11 @@ void PersonalBudget::registrationUser()
     userManager.registrationUser();
 }
 
+void PersonalBudget::logInUser()
+{
+    userManager.logInUser();
+}
+
 bool PersonalBudget::isUserLogged()
 {
     if (userManager.getIdLoggedUser() > 0)

@@ -8,6 +8,13 @@ string HelperMethods::convertIntForString(int figure)
     return str;
 }
 
+string HelperMethods::loadTheLine()
+{
+    string input = "";
+    getline(cin, input);
+    return input;
+}
+
 char HelperMethods::putTheSign()
 {
     string input = "";

@@ -15,6 +15,42 @@ void UserManager::registrationUser()
     system("pause");
 }
 
+void UserManager::logInUser()
+{
+    User user;
+    string login = "", password = "";
+    cout << endl << "Write login: ";
+    login = HelperMethods::loadTheLine();
+
+    vector <User>::iterator itr = users.begin();
+    while (itr != users.end())
+    {
+        if (itr -> getLogin() == login)
+        {
+            for (int amountOfTry = 3; amountOfTry > 0; amountOfTry--)
+            {
+                cout << "Give password. There remind : " << amountOfTry << " attempts : ";
+                password = HelperMethods::loadTheLine();
+
+                if (itr -> getPassword() == password)
+                {
+                    cout << endl << "You are logged in." << endl << endl;
+                    idLoggedUser = itr -> getId();
+                    system("pause");
+                    return;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo. "<< endl;
+            system("pause");
+            return;
+        }
+        itr++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return;
+}
+
 User UserManager::giveDataNewUser()
 {
     User user;

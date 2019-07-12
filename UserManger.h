@@ -26,6 +26,7 @@ public:
         users = fileWithUsers.downloadUsersFromFile();
     };
     void registrationUser();
+    void logInUser();
     void writeOutAllUsers();
     int getIdLoggedUser();
 };
