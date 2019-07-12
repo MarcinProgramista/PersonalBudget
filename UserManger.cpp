@@ -40,13 +40,13 @@ void UserManager::logInUser()
                     return;
                 }
             }
-            cout << "Wprowadzono 3 razy bledne haslo. "<< endl;
+            cout << "Three time put wrong password. "<< endl;
             system("pause");
             return;
         }
         itr++;
     }
-    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    cout << "There is no user with such a login" << endl << endl;
     system("pause");
     return;
 }
