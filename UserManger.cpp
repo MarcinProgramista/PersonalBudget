@@ -15,6 +15,11 @@ void UserManager::registrationUser()
     system("pause");
 }
 
+void UserManager::logInUser()
+{
+
+}
+
 User UserManager::giveDataNewUser()
 {
     User user;

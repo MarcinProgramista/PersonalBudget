@@ -12,5 +12,6 @@ class HelperMethods
 public:
     static string convertIntForString(int  figure);
     static char putTheSign();
+    static string loadTheLine();
 };
 #endif
