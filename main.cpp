@@ -20,7 +20,7 @@ int main()
                 personalBudget.registrationUser();
                 break;
             case '2':
-                //ksiazkaAdresowa.logowanieUzytkownika();
+                personalBudget.logInUser();
                 break;
             case '9':
                 exit(0);
