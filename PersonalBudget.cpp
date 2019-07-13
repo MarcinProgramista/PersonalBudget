@@ -15,6 +15,11 @@ void PersonalBudget::logInUser()
     userManager.logInUser();
 }
 
+void PersonalBudget::changePasswordLogged()
+{
+    userManager.changePasswordLogged();
+}
+
 bool PersonalBudget::isUserLogged()
 {
     if (userManager.getIdLoggedUser() > 0)

@@ -81,6 +81,31 @@ User UserManager::giveDataNewUser()
     return user;
 }
 
+void UserManager::changePasswordLogged()
+{
+    if(idLoggedUser > 0)
+    {
+        string newPassword = "";
+        cout << "Podaj nowe haslo: ";
+        newPassword = HelperMethods::loadTheLine();
+        for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
+        {
+            if (itr -> getId() == idLoggedUser)
+            {
+                itr -> setPassword(newPassword);
+                cout << "Password was changed." << endl << endl;
+                system("pause");
+            }
+        }
+        fileWithUsers.saveAllUsersToFile(idLoggedUser,newPassword);
+    }
+    else
+    {
+        cout << "To change password - you have to be logged in." << endl;
+        system("pause");
+    }
+}
+
 int UserManager::downloadIdNewUser()
 {
 if (users.empty() == true)

@@ -52,7 +52,7 @@ int main()
 
                 break;
             case '6':
-
+                personalBudget.changePasswordLogged();
                 break;
             case '7':
                 personalBudget.logOutUser();

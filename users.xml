@@ -28,4 +28,11 @@
 <Name>Kacper</Name>
 <Surname>Nizo</Surname>
 </User>
+<User>
+<UserId>5</UserId>
+<Login>basia</Login>
+<Password>23</Password>
+<Name>Basia</Name>
+<Surname>Dziala</Surname>
+</User>
 </Users>
