@@ -37,25 +37,25 @@ int main()
             switch (choice)
             {
             case '1':
-                //ksiazkaAdresowa.dodajAdresata();
+
                 break;
             case '2':
-                //ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+
                 break;
             case '3':
-                //ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+
                 break;
             case '4':
-                //ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+
                 break;
             case '5':
-                //ksiazkaAdresowa.usunAdresata();
+
                 break;
             case '6':
-                //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+
                 break;
             case '7':
-                //ksiazkaAdresowa.wylogowanieUzytkownika();
+                personalBudget.logOutUser();
                 break;
             }
         }
