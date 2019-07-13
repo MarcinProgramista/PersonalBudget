@@ -29,6 +29,7 @@ public:
     void logInUser();
     void writeOutAllUsers();
     int getIdLoggedUser();
+    void logOutUser();
 };
 
 #endif // USERMANAGER_H

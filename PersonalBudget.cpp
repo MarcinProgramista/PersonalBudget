@@ -61,3 +61,8 @@ char PersonalBudget::chooseOpctionFormUserMenu()
 
     return choose;
 }
+
+void PersonalBudget::logOutUser()
+{
+    userManager.logOutUser();
+}

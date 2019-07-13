@@ -114,3 +114,8 @@ void UserManager::writeOutAllUsers()
         cout <<  users[i].getSurname() << endl;
     }
 }
+
+void UserManager::logOutUser()
+{
+    idLoggedUser = 0;
+}
