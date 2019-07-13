@@ -17,6 +17,7 @@ public:
     void registrationUser();
     void logInUser();
     void logOutUser();
+    void changePasswordLogged();
     void writeOutAllUsers();
     bool isUserLogged();
     char chooseOpctionFromMainMenu();
