@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <windows.h>
 #include "PersonalBudget.h"
 
@@ -37,7 +38,13 @@ int main()
             switch (choice)
             {
             case '1':
-
+                {
+                    float d;
+                    string a = "265.56";
+                    d = atof(a.c_str());
+                    cout << d / 2 << endl;
+                    system("pause");
+                }
                 break;
             case '2':
 
