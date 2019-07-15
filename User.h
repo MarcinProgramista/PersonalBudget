@@ -13,6 +13,7 @@ class User
     string name;
     string surname;
 
+
 public:
     void setId(int newId);
     void setLogin(string newLogin);
