@@ -13,6 +13,23 @@ void PersonalBudget::registrationUser()
 void PersonalBudget::logInUser()
 {
     userManager.logInUser();
+    if(userManager.isUserLoggedIn())
+    {
+        balanceManager = new BalanceManager(FILE_NAME_WITH_INCOMES, userManager.getIdLoggedUser());
+    }
+}
+
+void PersonalBudget::addIncome()
+{
+    if (userManager.isUserLoggedIn())
+    {
+        balanceManager->addIncome();
+    }
+    else
+    {
+        cout << "To add income, you have to log in first" << endl;
+        system("pause");
+    }
 }
 
 void PersonalBudget::changePasswordLogged()

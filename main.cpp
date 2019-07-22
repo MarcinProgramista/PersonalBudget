@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
 #include <windows.h>
 #include "PersonalBudget.h"
 
@@ -8,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    PersonalBudget personalBudget("users.xml");
+    PersonalBudget personalBudget("users.xml","incomes.xml");
     char choice;
     while (true)
     {
@@ -38,13 +37,7 @@ int main()
             switch (choice)
             {
             case '1':
-                {
-                    float d;
-                    string a = "265.56";
-                    d = atof(a.c_str());
-                    cout << d / 2 << endl;
-                    system("pause");
-                }
+                personalBudget.addIncome();
                 break;
             case '2':
 
