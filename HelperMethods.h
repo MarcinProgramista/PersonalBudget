@@ -16,5 +16,6 @@ public:
     static int convertStringForInt(string number);
     static string putDashesInDate(string dateWithoutDashes);
     static string convertFloatForString(float number);
+    static string removeDashFromDate(string dateToCheck);
 };
 #endif

@@ -25,9 +25,10 @@ public:
     BalanceManager(string fileNameWithIncomes, int idLoggedUser)
     : fileWithIncomes(fileNameWithIncomes), ID_LOGGED_USER(idLoggedUser)
     {
-
+        incomes = fileWithIncomes.loadIncomesLoggedUserFromFile(ID_LOGGED_USER);
     };
 
     void addIncome();
+    void seeIncomes();
 };
 #endif // BALANCEMANAGER_H

@@ -44,6 +44,15 @@ char HelperMethods::putTheSign()
     return sign;
 }
 
+string HelperMethods::removeDashFromDate(string dateToCheck)
+{
+    string dateWithoutDash;
+    dateWithoutDash = dateToCheck.erase(4,1);
+    dateWithoutDash = dateToCheck.erase(6,1);
+
+    return dateWithoutDash;
+}
+
 string HelperMethods::putDashesInDate(string dateWithoutDashes)
 {
     dateWithoutDashes.insert(4,"-");
