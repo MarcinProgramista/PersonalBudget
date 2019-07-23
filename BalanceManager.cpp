@@ -7,13 +7,14 @@ void BalanceManager::addIncome()
     cout << " >>> ADD NEW INCOME <<<" << endl << endl;
     income = putDetailsNewIncome();
     incomes.push_back(income);
+    fileWithIncomes.addIncomeToFile(income);
     for (int i = 0;  i < incomes.size(); i++)
     {
         cout << "Number of record:     " << incomes[i].getNumberOfRecord() << endl;
         cout << "Id logged user:       " << incomes[i].getUserId() << endl;
         cout << "Date:                 " << incomes[i].getDate() << endl;
         cout << "Category:             " << incomes[i].getCategory() << endl;
-        cout << "Amount:             " << incomes[i].getAmount() << endl;
+        cout << "Amount:               " << incomes[i].getAmount() << endl;
     }
     system("pause");
 }
@@ -103,8 +104,6 @@ int BalanceManager::getTheDateFromSystem()
 
     if ( day.size() == 1)
         day = "0" + day;
-
-   // cout << HelperMethods::convertStringForInt(year + month + day) << endl;
 
     return HelperMethods::convertStringForInt(year + month + day);
 }

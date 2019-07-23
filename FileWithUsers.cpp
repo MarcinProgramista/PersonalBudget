@@ -53,12 +53,11 @@ User FileWithUsers::downloadUser()
     xml.OutOfElem();
 
     return user;
-
 }
 
 void FileWithUsers::addUserToFile(User user)
 {
-    bool fileExists = xml.Load( getNameFile() );
+    bool fileExists = xml.Load( getNameFile());
 
     if (!fileExists)
     {
