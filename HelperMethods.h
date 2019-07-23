@@ -14,5 +14,7 @@ public:
     static char putTheSign();
     static string loadTheLine();
     static int convertStringForInt(string number);
+    static string putDashesInDate(string dateWithoutDashes);
+    static string convertFloatForString(float number);
 };
 #endif

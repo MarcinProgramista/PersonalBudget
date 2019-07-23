@@ -7,12 +7,14 @@
 #include "TextFile.h"
 #include "Income.h"
 #include "HelperMethods.h"
+#include "Markup.h"
 
 using namespace std;
 
 class FileWithIncomes: public TextFile
 {
-     int idLastNumberOfRecord;
+    CMarkup xml;
+    int idLastNumberOfRecord;
 
  public:
     FileWithIncomes(string fileNameWithIncomes): TextFile(fileNameWithIncomes){
@@ -20,6 +22,7 @@ class FileWithIncomes: public TextFile
     };
     int getIdLastNumberOfRecord();
     void setIdLastNumberOfRecord(int newIdLastNumberOfRecord);
+    void addIncomeToFile(Income income);
 };
 
 

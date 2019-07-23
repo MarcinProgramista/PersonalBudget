@@ -43,3 +43,19 @@ char HelperMethods::putTheSign()
     }
     return sign;
 }
+
+string HelperMethods::putDashesInDate(string dateWithoutDashes)
+{
+    dateWithoutDashes.insert(4,"-");
+    dateWithoutDashes.insert(7,"-");
+
+    return dateWithoutDashes;
+}
+
+string HelperMethods::convertFloatForString(float number)
+{
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
