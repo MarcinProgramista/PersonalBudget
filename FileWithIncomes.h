@@ -2,6 +2,7 @@
 #define FILEWITHINCOMES_H
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
 #include <sstream>
 #include <fstream>
 #include "TextFile.h"
@@ -14,6 +15,7 @@ using namespace std;
 class FileWithIncomes: public TextFile
 {
     CMarkup xml;
+    Income downloadIncome();
     int idLastNumberOfRecord;
 
  public:
@@ -23,6 +25,7 @@ class FileWithIncomes: public TextFile
     int getIdLastNumberOfRecord();
     void setIdLastNumberOfRecord(int newIdLastNumberOfRecord);
     void addIncomeToFile(Income income);
+    vector <Income> loadIncomesLoggedUserFromFile(int idLoggedUser);
 };
 
 

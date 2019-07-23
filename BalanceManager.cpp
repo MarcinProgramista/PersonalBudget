@@ -5,17 +5,16 @@ void BalanceManager::addIncome()
     Income income;
     system("cls");
     cout << " >>> ADD NEW INCOME <<<" << endl << endl;
+
     income = putDetailsNewIncome();
     incomes.push_back(income);
+
     fileWithIncomes.addIncomeToFile(income);
-    for (int i = 0;  i < incomes.size(); i++)
-    {
-        cout << "Number of record:     " << incomes[i].getNumberOfRecord() << endl;
-        cout << "Id logged user:       " << incomes[i].getUserId() << endl;
-        cout << "Date:                 " << incomes[i].getDate() << endl;
-        cout << "Category:             " << incomes[i].getCategory() << endl;
-        cout << "Amount:               " << incomes[i].getAmount() << endl;
-    }
+
+    cout << "New income was added " << endl;
+
+
+
     system("pause");
 }
 
@@ -62,10 +61,10 @@ int BalanceManager::takeTheDateFromUser()
         do
         {
             cout << "Put date: ";
-            cin >> date;
-            return HelperMethods::convertStringForInt(removeDashFromDate(date));
+            date = HelperMethods::loadTheLine();
         }
         while (isDateCorrect(date) != true);
+        return HelperMethods::convertStringForInt(removeDashFromDate(date));
     }
 }
 
@@ -106,4 +105,18 @@ int BalanceManager::getTheDateFromSystem()
         day = "0" + day;
 
     return HelperMethods::convertStringForInt(year + month + day);
+}
+
+void BalanceManager::seeIncomes()
+{
+    for (int i = 0;  i < incomes.size(); i++)
+    {
+        cout << "Number of record:     " << incomes[i].getNumberOfRecord() << endl;
+        cout << "Id logged user:       " << incomes[i].getUserId() << endl;
+        cout << "Date:                 " << incomes[i].getDate() << endl;
+        cout << "Category:             " << incomes[i].getCategory() << endl;
+        cout << "Amount:               " << incomes[i].getAmount() << endl;
+    }
+    system("pause");
+
 }
