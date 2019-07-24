@@ -1,5 +1,5 @@
-#ifndef INCOME_H
-#define INCOME_H
+#ifndef EXPENSE_H
+#define EXPENSE_H
 
 #include <iostream>
 #include <windows.h>
@@ -8,12 +8,12 @@
 
 using namespace std;
 
-class Income: public BagOfMoney
+class Expense: public BagOfMoney
 {
 
 
 public:
-    Income(int numberOfRecord = 0, int userId = 0, int date = 0, string category = "",  float amount = 0)
+    Expense(int numberOfRecord = 0, int userId = 0, int date = 0, string category = "",  float amount = 0)
     :BagOfMoney (numberOfRecord, userId, date, category, amount)
     {};
 };
