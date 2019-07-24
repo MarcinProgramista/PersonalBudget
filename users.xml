@@ -35,4 +35,11 @@
 <Name>Basia</Name>
 <Surname>Dziala</Surname>
 </User>
+<User>
+<UserId>6</UserId>
+<Login>lukasz</Login>
+<Password>45</Password>
+<Name>Lukasz</Name>
+<Surname>Pak</Surname>
+</User>
 </Users>

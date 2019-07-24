@@ -21,7 +21,7 @@ vector <User> FileWithUsers::downloadUsersFromFile()
         users.push_back(user);
     }
     xml.OutOfElem();
-
+    xml.Save(getNameFile());
     return users;
 }
 
