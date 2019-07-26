@@ -42,4 +42,11 @@
 <Name>Lukasz</Name>
 <Surname>Pak</Surname>
 </User>
+<User>
+<UserId>7</UserId>
+<Login>sd</Login>
+<Password>23</Password>
+<Name>haka</Name>
+<Surname>cz</Surname>
+</User>
 </Users>
