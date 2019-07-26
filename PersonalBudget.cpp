@@ -15,7 +15,7 @@ void PersonalBudget::logInUser()
     userManager.logInUser();
     if(userManager.isUserLoggedIn())
     {
-        balanceManager = new BalanceManager(FILE_NAME_WITH_INCOMES, userManager.getIdLoggedUser());
+        balanceManager = new BalanceManager(FILE_NAME_WITH_INCOMES, FILE_NAME_WITH_EXPENSES,userManager.getIdLoggedUser());
     }
 }
 
@@ -28,6 +28,19 @@ void PersonalBudget::addIncome()
     else
     {
         cout << "To add income, you have to log in first" << endl;
+        system("pause");
+    }
+}
+
+void PersonalBudget::addExpense()
+{
+    if (userManager.isUserLoggedIn())
+    {
+        balanceManager->addExpense();
+    }
+    else
+    {
+        cout << "To add expense, you have to log in first" << endl;
         system("pause");
     }
 }

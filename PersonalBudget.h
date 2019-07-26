@@ -11,9 +11,10 @@ class PersonalBudget
     UserManager userManager;
     BalanceManager *balanceManager;
     const string FILE_NAME_WITH_INCOMES;
+    const string FILE_NAME_WITH_EXPENSES;
 
 public:
-    PersonalBudget(string nameFileWithUsers, string fileNameWithIncomes):userManager(nameFileWithUsers), FILE_NAME_WITH_INCOMES(fileNameWithIncomes)
+    PersonalBudget(string nameFileWithUsers, string fileNameWithIncomes, string fileNameWithExpenses):userManager(nameFileWithUsers), FILE_NAME_WITH_INCOMES(fileNameWithIncomes), FILE_NAME_WITH_EXPENSES(fileNameWithExpenses)
     {
         balanceManager = NULL;
     };
@@ -29,6 +30,7 @@ public:
     void writeOutAllUsers();
     bool isUserLogged();
     void addIncome();
+    void addExpense();
     char chooseOpctionFromMainMenu();
     char chooseOpctionFormUserMenu();
 };

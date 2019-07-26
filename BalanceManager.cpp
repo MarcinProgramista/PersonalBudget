@@ -12,9 +12,6 @@ void BalanceManager::addIncome()
     fileWithIncomes.addIncomeToFile(income);
 
     cout << "New income was added " << endl;
-
-
-
     system("pause");
 }
 
@@ -41,6 +38,31 @@ Income BalanceManager::putDetailsNewIncome()
     income.setAmount(amount);
 
     return income;
+}
+
+void BalanceManager::addExpense()
+{
+    Expense expense;
+    system("cls");
+    cout << " >>> ADD NEW INCOME <<<" << endl << endl;
+
+    expense = putDetailsNewExpense();
+    expenses.push_back(expense);
+
+    cout << incomes.size()<< endl;
+    seeExpenses();
+
+    cout << "New expense was added " << endl;
+    system("pause");
+}
+
+Expense BalanceManager::putDetailsNewExpense()
+{
+    Expense expense;
+
+    expense.setNumberOfRecord(fileWithExpenses.getIdLastNumberOfRecord()+1);
+
+    return expense;
 }
 
 int BalanceManager::takeTheDateFromUser()
@@ -116,6 +138,19 @@ void BalanceManager::seeIncomes()
         cout << "Date:                 " << incomes[i].getDate() << endl;
         cout << "Category:             " << incomes[i].getCategory() << endl;
         cout << "Amount:               " << incomes[i].getAmount() << endl;
+    }
+    system("pause");
+}
+
+void BalanceManager::seeExpenses()
+{
+    for (int i = 0;  i < incomes.size(); i++)
+    {
+        cout << "Number of record:     " << expenses[i].getNumberOfRecord() << endl;
+        cout << "Id logged user:       " << expenses[i].getUserId() << endl;
+        //cout << "Date:                 " << expenses[i].getDate() << endl;
+        //cout << "Category:             " << expenses[i].getCategory() << endl;
+        //cout << "Amount:               " << expenses[i].getAmount() << endl;
     }
     system("pause");
 
