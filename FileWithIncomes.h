@@ -27,6 +27,4 @@ class FileWithIncomes: public TextFile
     void addIncomeToFile(Income income);
     vector <Income> loadIncomesLoggedUserFromFile(int idLoggedUser);
 };
-
-
 #endif // FILEWITHINCOMES_H
