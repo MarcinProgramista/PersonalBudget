@@ -16,7 +16,7 @@ class FileWithExpenses: public TextFile
 {
     CMarkup xml;
     int idLastNumberOfRecord;
-   // Income downloadIncome();
+    Expense downloadExpense();
 
 
  public:
@@ -26,7 +26,7 @@ class FileWithExpenses: public TextFile
    int getIdLastNumberOfRecord();
    void setIdLastNumberOfRecord(int newIdLastNumberOfRecord);
    void addExpenseToFile(Expense expense);
-   // vector <Income> loadIncomesLoggedUserFromFile(int idLoggedUser);
+   vector <Expense> loadExpensesLoggedUserFromFile(int idLoggedUser);
 };
 
 

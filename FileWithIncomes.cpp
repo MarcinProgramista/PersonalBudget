@@ -104,7 +104,5 @@ Income FileWithIncomes::downloadIncome()
     amount = xml.GetData();
     income.setAmount(atof(amount.c_str()));
 
-
-
     return income;
 }
