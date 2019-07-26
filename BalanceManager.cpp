@@ -49,6 +49,8 @@ void BalanceManager::addExpense()
     expense = putDetailsNewExpense();
     expenses.push_back(expense);
 
+    fileWithExpenses.addExpenseToFile(expense);
+
     seeExpenses();
 
     cout << "New expense was added " << endl;

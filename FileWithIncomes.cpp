@@ -62,6 +62,8 @@ void FileWithIncomes::addIncomeToFile(Income income)
     idLastNumberOfRecord = atoi(buffor.c_str());
 
     xml.OutOfElem();
+    xml.Save(getNameFile());
+
     for (int i = 0;  i < incomes.size(); i++)
     {
         cout << "Number of record:     " << incomes[i].getNumberOfRecord() << endl;
