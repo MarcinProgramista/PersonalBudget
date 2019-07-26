@@ -33,6 +33,7 @@ public:
     : fileWithIncomes(fileNameWithIncomes),fileWithExpenses(fileNameWithExpenses), ID_LOGGED_USER(idLoggedUser)
     {
         incomes = fileWithIncomes.loadIncomesLoggedUserFromFile(ID_LOGGED_USER);
+        expenses = fileWithExpenses.loadExpensesLoggedUserFromFile(ID_LOGGED_USER);
     };
 
     void addIncome();
