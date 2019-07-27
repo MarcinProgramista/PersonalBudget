@@ -64,16 +64,7 @@ void FileWithIncomes::addIncomeToFile(Income income)
     xml.OutOfElem();
     xml.Save(getNameFile());
 
-    for (int i = 0;  i < incomes.size(); i++)
-    {
-        cout << "Number of record:     " << incomes[i].getNumberOfRecord() << endl;
-        cout << "Id logged user:       " << incomes[i].getUserId() << endl;
-        cout << "Date:                 " << incomes[i].getDate() << endl;
-        cout << "Category:             " << incomes[i].getCategory() << endl;
-        cout << "Amount:               " << incomes[i].getAmount() << endl;
-    }
 
-    system("pause");
     return incomes;
  }
 
@@ -102,6 +93,7 @@ Income FileWithIncomes::downloadIncome()
 
     xml.FindElem("Amount");
     amount = xml.GetData();
+    amount = HelperMethods::checkAmount(amount);
     income.setAmount(atof(amount.c_str()));
 
     return income;
