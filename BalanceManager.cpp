@@ -32,10 +32,11 @@ Income BalanceManager::putDetailsNewIncome()
     category = HelperMethods::loadTheLine();
     income.setCategory(category);
 
-    float amount;
+    string amount;
     cout << "Put amount: ";
     cin >> amount;
-    income.setAmount(amount);
+    amount = HelperMethods::checkAmount(amount);
+    income.setAmount(atof(amount.c_str()));
 
     return income;
 }
@@ -50,8 +51,6 @@ void BalanceManager::addExpense()
     expenses.push_back(expense);
 
     fileWithExpenses.addExpenseToFile(expense);
-
-    seeExpenses();
 
     cout << "New expense was added " << endl;
     system("pause");
@@ -73,10 +72,11 @@ Expense BalanceManager::putDetailsNewExpense()
     category = HelperMethods::loadTheLine();
     expense.setCategory(category);
 
-    float amount;
+    string amount;
     cout << "Put amount: ";
     cin >> amount;
-    expense.setAmount(amount);
+    amount = HelperMethods::checkAmount(amount);
+    expense.setAmount(atof(amount.c_str()));
 
     return expense;
 }
@@ -108,7 +108,7 @@ int BalanceManager::takeTheDateFromUser()
 
 bool BalanceManager::isDateCorrect(string dateToCheck)
 {
-     if((dateToCheck[4] == 45) && (dateToCheck[7] == 45) )
+    if((dateToCheck[4] == 45) && (dateToCheck[7] == 45) )
     {
         return true;
     }

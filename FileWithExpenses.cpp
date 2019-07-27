@@ -64,16 +64,6 @@ vector <Expense> FileWithExpenses::loadExpensesLoggedUserFromFile(int idLoggedUs
     xml.OutOfElem();
     xml.Save(getNameFile());
 
-    for (int i = 0;  i < expenses.size(); i++)
-    {
-        cout << "Number of record:     " << expenses[i].getNumberOfRecord() << endl;
-        cout << "Id logged user:       " << expenses[i].getUserId() << endl;
-        cout << "Date:                 " << expenses[i].getDate() << endl;
-        cout << "Category:             " << expenses[i].getCategory() << endl;
-        cout << "Amount:               " << expenses[i].getAmount() << endl;
-    }
-
-    system("pause");
     return expenses;
 }
 
@@ -102,6 +92,7 @@ Expense FileWithExpenses::downloadExpense()
 
     xml.FindElem("Amount");
     amount = xml.GetData();
+    amount = HelperMethods::checkAmount(amount);
     expense.setAmount(atof(amount.c_str()));
 
     return expense;
