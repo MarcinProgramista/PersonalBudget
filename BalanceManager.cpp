@@ -106,17 +106,165 @@ int BalanceManager::takeTheDateFromUser()
     }
 }
 
+string BalanceManager::checkingPositionDashesInDate(string dateToCheck)
+{
+    int longOfDate = dateToCheck.length();
+    if (longOfDate == 10)
+    {
+        if ( dateToCheck[4] == 45 && dateToCheck[7] == 45)
+            return dateToCheck;
+    }
+    else if (longOfDate == 9 )
+    {
+        if ( dateToCheck[4] == 45 && dateToCheck[7] == 45)
+        {
+            dateToCheck = dateToCheck.insert(8,"0");
+            return dateToCheck;
+        }
+        else if ( dateToCheck[4] == 45 && dateToCheck[6] == 45)
+        {
+            dateToCheck = dateToCheck.insert(5,"0");
+            return dateToCheck;
+        }
+    }
+    else if (longOfDate == 8 )
+    {
+        if ( dateToCheck[4] == 45 && dateToCheck[6] == 45)
+        {
+            dateToCheck = dateToCheck.insert(5,"0");
+            dateToCheck = dateToCheck.insert(8,"0");
+            return dateToCheck;
+        }
+    }
+}
+
+bool BalanceManager::checkIfDateHasDigits(string dateToCheck)
+{
+    for (int i = 0; i < dateToCheck.length(); i++)
+    {
+        if (dateToCheck[i] > 57)
+        {
+            i =  dateToCheck.length();
+            return true;
+        }
+    }
+}
+
+int BalanceManager::getYearFromDate(string dateToCheck)
+{
+    int year = HelperMethods::convertStringForInt(dateToCheck.erase(4,4));
+    return year;
+}
+
+int BalanceManager::getMonthFromDate(string dateToCheck)
+{
+    int month;
+    dateToCheck = dateToCheck.erase(0,4);
+    month = HelperMethods::convertStringForInt(dateToCheck.erase(2,2));
+     if (month > 12 )
+        return 0;
+    else
+        return month;
+}
+
+int BalanceManager::getDayFromDate(string dateToCheck)
+{
+    int day;
+    day = HelperMethods::convertStringForInt(dateToCheck.erase(0,6));
+    if (day > 31 )
+        return 0;
+    else
+        return day;
+}
+
+int BalanceManager::returnNumberDaysfromDate(string dateToCheck)
+{
+    switch(getMonthFromDate(dateToCheck))
+    {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        return 31;
+        break;
+
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        return 30;
+        break;
+
+    case 2:
+    {
+
+        if (((getYearFromDate(dateToCheck)%4 == 0) && (getYearFromDate(dateToCheck)%100 != 0)) || (getYearFromDate(dateToCheck)%400 == 0))
+            return 29;
+        else
+            return 28;
+    }
+    break;
+
+    default:
+        return 0;
+    }
+}
+
+string BalanceManager::getNameOfMonth(string dateToCheck)
+{
+    int monthFromDate = getMonthFromDate(dateToCheck);
+    map<int,string> month;
+    month[1] = "January";
+    month[2] = "February";
+    month[3] = "March";
+    month[4] = "April";
+    month[5] = "May";
+    month[6] = "June";
+    month[7] = "July";
+    month[8] = "August";
+    month[9] = "September";
+    month[10] = "October";
+    month[11] = "November";
+    month[12] = "December";
+
+    return month.find((int)monthFromDate) -> second;
+}
+
 bool BalanceManager::isDateCorrect(string dateToCheck)
 {
-    if((dateToCheck[4] == 45) && (dateToCheck[7] == 45) )
+    dateToCheck = removeDashFromDate(checkingPositionDashesInDate(dateToCheck));
+
+     if(checkIfDateHasDigits(dateToCheck))
     {
-        return true;
-    }
-    else
-    {
-        cout << "Please type date with correct format: yyyy-mm-dd"  << endl;
+        cout << "Please type date with correct format: yyyy-mm-dd,exp 2019-01-02"  << endl;
         return false;
     }
+    else if (getMonthFromDate(dateToCheck) == 0 && getDayFromDate(dateToCheck) == 0)
+    {
+        cout << "Month is not between 1 and 12, please put correct month"  << endl;
+        cout << "Day is not between 1 and 31, please put correct day"  << endl;
+        return false;
+    }
+    else if (getMonthFromDate(dateToCheck) == 0 && getDayFromDate(dateToCheck) != 0)
+    {
+         cout << "Month is not between 1 and 12, please put correct month"  << endl;
+        return false;
+    }
+    else if (getMonthFromDate(dateToCheck) != 0 && getDayFromDate(dateToCheck) == 0)
+    {
+        cout << "Day is not between 1 and 31, please put correct day"  << endl;
+        return false;
+    }
+    else if (returnNumberDaysfromDate(dateToCheck)!= getDayFromDate(dateToCheck))
+    {
+        cout << getNameOfMonth(dateToCheck) <<" doesn't have, so many days "<< endl;
+        return false;
+    }
+    else
+        return true;
 }
 
 string BalanceManager::removeDashFromDate(string dateToCheck)
