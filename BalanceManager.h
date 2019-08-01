@@ -8,6 +8,7 @@
 #include <ctime>
 #include <vector>
 #include <iostream>
+#include <map>
 
 using namespace std;
 
@@ -27,6 +28,13 @@ class BalanceManager
     string removeDashFromDate(string dateToCheck);
     int getTheDateFromSystem();
     int takeTheDateFromUser();
+    string checkingPositionDashesInDate(string dateToCheck);
+    bool checkIfDateHasDigits(string dateToCheck);
+    int getYearFromDate(string dateToCheck);
+    int getMonthFromDate(string dateToCheck);
+    int getDayFromDate(string dateToCheck);
+    int returnNumberDaysfromDate(string dateToCheck);
+    string getNameOfMonth(string dateToCheck);
 
 public:
     BalanceManager(string fileNameWithIncomes,string fileNameWithExpenses, int idLoggedUser)
