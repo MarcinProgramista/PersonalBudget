@@ -106,3 +106,8 @@ void PersonalBudget::balanceFromCurrentMonth()
 {
     balanceManager ->seeBalanceFromCurrentMonth();
 }
+
+void PersonalBudget::balanceFromLastMonth()
+{
+    balanceManager -> seeBalanceFromLastMonth();
+}
