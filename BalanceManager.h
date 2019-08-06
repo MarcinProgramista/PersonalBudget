@@ -43,6 +43,8 @@ class BalanceManager
     float seeChoosenLinesFromIcomes();
     float seeChoosenLinesFromExpenses();
     void sortIncomesAndExpenses();
+    float seeChoosenLinesFromIcomesFromLastMonth();
+    float seeChoosenLinesFromExpensesFromLastMonth();
 
 public:
     BalanceManager(string fileNameWithIncomes,string fileNameWithExpenses, int idLoggedUser)
@@ -55,5 +57,6 @@ public:
     void addIncome();
     void addExpense();
     void seeBalanceFromCurrentMonth();
+    void seeBalanceFromLastMonth();
 };
 #endif // BALANCEMANAGER_H

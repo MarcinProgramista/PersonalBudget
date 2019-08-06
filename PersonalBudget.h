@@ -34,6 +34,7 @@ public:
     char chooseOpctionFromMainMenu();
     char chooseOpctionFormUserMenu();
     void balanceFromCurrentMonth();
+    void balanceFromLastMonth();
 };
 
 #endif // PERSONALBUDGET_H

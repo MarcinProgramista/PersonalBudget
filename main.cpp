@@ -46,7 +46,7 @@ int main()
                 personalBudget.balanceFromCurrentMonth();
                 break;
             case '4':
-
+                personalBudget.balanceFromLastMonth();
                 break;
             case '5':
 
