@@ -1,5 +1,10 @@
 #include "BagOfMoney.h"
 
+bool BagOfMoney::operator < (const BagOfMoney& str) const
+{
+    return (this->date < str.date);
+}
+
 void BagOfMoney::setNumberOfRecord(int newNumberOfRecord)
 {
      if(newNumberOfRecord >= 0)

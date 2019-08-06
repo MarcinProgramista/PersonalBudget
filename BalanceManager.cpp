@@ -1,5 +1,11 @@
 #include "BalanceManager.h"
 
+void  BalanceManager:: sortIncomesAndExpenses()
+{
+    sort(incomes.begin(), incomes.end());
+    sort(expenses.begin(), expenses.end());
+}
+
 void BalanceManager::addIncome()
  {
     Income income;
@@ -100,6 +106,7 @@ int BalanceManager::takeTheDateFromUser()
         {
             cout << "Put date: ";
             date = HelperMethods::loadTheLine();
+            date = checkingPositionDashesInDate(date);
         }
         while (isDateCorrect(date) != true);
         return HelperMethods::convertStringForInt(removeDashFromDate(date));
@@ -235,8 +242,7 @@ string BalanceManager::getNameOfMonth(string dateToCheck)
 
 bool BalanceManager::isDateCorrect(string dateToCheck)
 {
-    dateToCheck = removeDashFromDate(checkingPositionDashesInDate(dateToCheck));
-
+    dateToCheck = removeDashFromDate(dateToCheck);
      if(checkIfDateHasDigits(dateToCheck))
     {
         cout << "Please type date with correct format: yyyy-mm-dd,exp 2019-01-02"  << endl;
@@ -258,7 +264,7 @@ bool BalanceManager::isDateCorrect(string dateToCheck)
         cout << "Day is not between 1 and 31, please put correct day"  << endl;
         return false;
     }
-    else if (returnNumberDaysfromDate(dateToCheck)!= getDayFromDate(dateToCheck))
+    else if (returnNumberDaysfromDate(dateToCheck)< getDayFromDate(dateToCheck))
     {
         cout << getNameOfMonth(dateToCheck) <<" doesn't have, so many days "<< endl;
         return false;
@@ -293,29 +299,87 @@ int BalanceManager::getTheDateFromSystem()
     return HelperMethods::convertStringForInt(year + month + day);
 }
 
-void BalanceManager::seeIncomes()
+string  BalanceManager::putDashesToDate(string date)
 {
+    date = date.insert(4,"-");
+    date = date.insert(7,"-");
+
+    return date;
+}
+
+void BalanceManager::headerIncomes()
+{
+    cout << "***************************************************" << endl;
+    cout << "*                  INCOMES                        *" << endl;
+    cout << "***************************************************" << endl;
+    cout << "*     DATE    *    Category           *  AMOUNT   *" << endl;
+    cout << "***************************************************" << endl;
+}
+void BalanceManager::headerExpenses()
+{
+    cout << "***************************************************" << endl;
+    cout << "*                 EXPENSES                        *" << endl;
+    cout << "***************************************************" << endl;
+    cout << "*     DATE    *    Category           *  AMOUNT   *" << endl;
+    cout << "***************************************************" << endl;
+}
+
+float BalanceManager::seeChoosenLinesFromIcomes()
+{
+    float sumAmountIncomes = 0;
     for (int i = 0;  i < incomes.size(); i++)
     {
-        cout << "Number of record:     " << incomes[i].getNumberOfRecord() << endl;
-        cout << "Id logged user:       " << incomes[i].getUserId() << endl;
-        cout << "Date:                 " << incomes[i].getDate() << endl;
-        cout << "Category:             " << incomes[i].getCategory() << endl;
-        cout << "Amount:               " << incomes[i].getAmount() << endl;
+        int monthFromSystem = getMonthFromDate(HelperMethods::convertIntForString(getTheDateFromSystem()));
+        int monthItemFromVector = getMonthFromDate(HelperMethods::convertIntForString(incomes[i].getDate()));
+        int yearFromSystem = getYearFromDate(HelperMethods::convertIntForString(getTheDateFromSystem()));
+        int yearItemFromVector = getYearFromDate(HelperMethods::convertIntForString(incomes[i].getDate()));
+        if((monthFromSystem == monthItemFromVector) && (yearFromSystem == yearItemFromVector))
+        {
+            cout << " " << putDashesToDate(HelperMethods::convertIntForString(incomes[i].getDate())) << "    " << incomes[i].getCategory();
+            string category = incomes[i].getCategory();
+            for (int j = 0 ; j < 24 - category.length(); j++)
+                cout << " ";
+            cout << incomes[i].getAmount()  << endl;
+            sumAmountIncomes+= incomes[i].getAmount();
+        }
     }
+    cout << endl << "               SUM INCOMES:" << sumAmountIncomes << endl << endl;
+    return sumAmountIncomes;
+}
+
+void BalanceManager::seeBalanceFromCurrentMonth()
+{
+    system("cls");
+    sortIncomesAndExpenses();
+    headerIncomes();
+    float sumIcomes = seeChoosenLinesFromIcomes();
+    headerExpenses();
+    float sumExpenses = seeChoosenLinesFromExpenses();
+    cout << "BALANCE b:" << sumIcomes << " - " << sumExpenses << " = " << sumIcomes - sumExpenses << endl;
     system("pause");
 }
 
-void BalanceManager::seeExpenses()
+float BalanceManager::seeChoosenLinesFromExpenses()
 {
+    float sumAmountExpenses = 0;
     for (int i = 0;  i < expenses.size(); i++)
     {
-        cout << "Number of record:     " << expenses[i].getNumberOfRecord() << endl;
-        cout << "Id logged user:       " << expenses[i].getUserId() << endl;
-        cout << "Date:                 " << expenses[i].getDate() << endl;
-        cout << "Category:             " << expenses[i].getCategory() << endl;
-        cout << "Amount:               " << expenses[i].getAmount() << endl;
+        int monthFromSystem = getMonthFromDate(HelperMethods::convertIntForString(getTheDateFromSystem()));
+        int monthItemFromVector = getMonthFromDate(HelperMethods::convertIntForString(expenses[i].getDate()));
+        int yearFromSystem = getYearFromDate(HelperMethods::convertIntForString(getTheDateFromSystem()));
+        int yearItemFromVector = getYearFromDate(HelperMethods::convertIntForString(expenses[i].getDate()));
+        if((monthFromSystem == monthItemFromVector) && (yearFromSystem == yearItemFromVector))
+        {
+            cout << " " << putDashesToDate(HelperMethods::convertIntForString(expenses[i].getDate())) << "    " << expenses[i].getCategory();
+            string category = expenses[i].getCategory();
+            for (int j = 0 ; j < 24 - category.length(); j++)
+                cout << " ";
+            cout << expenses[i].getAmount()  << endl;
+            sumAmountExpenses+= expenses[i].getAmount();
+        }
     }
-    system("pause");
-
+    cout << endl << "               SUM EXPENSES:" << sumAmountExpenses << endl << endl;
+    return sumAmountExpenses;
 }
+
+

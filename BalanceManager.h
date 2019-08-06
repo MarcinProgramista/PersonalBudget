@@ -9,6 +9,8 @@
 #include <vector>
 #include <iostream>
 #include <map>
+#include <windows.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -35,6 +37,12 @@ class BalanceManager
     int getDayFromDate(string dateToCheck);
     int returnNumberDaysfromDate(string dateToCheck);
     string getNameOfMonth(string dateToCheck);
+    void headerIncomes();
+    void headerExpenses();
+    string putDashesToDate(string date);
+    float seeChoosenLinesFromIcomes();
+    float seeChoosenLinesFromExpenses();
+    void sortIncomesAndExpenses();
 
 public:
     BalanceManager(string fileNameWithIncomes,string fileNameWithExpenses, int idLoggedUser)
@@ -46,7 +54,6 @@ public:
 
     void addIncome();
     void addExpense();
-    void seeIncomes();
-    void seeExpenses();
+    void seeBalanceFromCurrentMonth();
 };
 #endif // BALANCEMANAGER_H
