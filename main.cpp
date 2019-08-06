@@ -43,7 +43,7 @@ int main()
                 personalBudget.addExpense();
                 break;
             case '3':
-
+                personalBudget.balanceFromCurrentMonth();
                 break;
             case '4':
 

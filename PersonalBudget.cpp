@@ -101,3 +101,8 @@ void PersonalBudget::logOutUser()
 {
     userManager.logOutUser();
 }
+
+void PersonalBudget::balanceFromCurrentMonth()
+{
+    balanceManager ->seeBalanceFromCurrentMonth();
+}

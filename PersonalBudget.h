@@ -33,6 +33,7 @@ public:
     void addExpense();
     char chooseOpctionFromMainMenu();
     char chooseOpctionFormUserMenu();
+    void balanceFromCurrentMonth();
 };
 
 #endif // PERSONALBUDGET_H

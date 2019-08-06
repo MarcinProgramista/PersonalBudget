@@ -1,6 +1,7 @@
 #ifndef BAGOFMONEY_H
 #define BAGOFMONEY_H
-
+#include <algorithm>
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -28,11 +29,14 @@ public:
     void setCategory(string newCategory);
     void setAmount(float newAmount);
 
+
     int getNumberOfRecord();
     int getUserId();
     int getDate();
     string getCategory();
     float getAmount();
+
+    bool operator < (const BagOfMoney& str) const;
 };
 
 #endif
