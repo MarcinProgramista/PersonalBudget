@@ -102,12 +102,17 @@ void PersonalBudget::logOutUser()
     userManager.logOutUser();
 }
 
-void PersonalBudget::balanceFromCurrentMonth()
+void PersonalBudget::balanceFromCurrentMonth(char choice)
 {
-    balanceManager ->seeBalanceFromCurrentMonth();
+    balanceManager ->seeBalance(choice);
 }
 
-void PersonalBudget::balanceFromLastMonth()
+void PersonalBudget::balanceFromLastMonth(char choice)
 {
-    balanceManager -> seeBalanceFromLastMonth();
+    balanceManager -> seeBalance(choice);
+}
+
+void PersonalBudget::balanceFromChoosenPeriod(char choice)
+{
+    balanceManager -> seeBalance(choice);
 }

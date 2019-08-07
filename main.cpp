@@ -43,13 +43,13 @@ int main()
                 personalBudget.addExpense();
                 break;
             case '3':
-                personalBudget.balanceFromCurrentMonth();
+                personalBudget.balanceFromCurrentMonth(choice);
                 break;
             case '4':
-                personalBudget.balanceFromLastMonth();
+                personalBudget.balanceFromLastMonth(choice);
                 break;
             case '5':
-
+                personalBudget.balanceFromChoosenPeriod(choice);
                 break;
             case '6':
                 personalBudget.changePasswordLogged();
