@@ -40,11 +40,14 @@ class BalanceManager
     void headerIncomes();
     void headerExpenses();
     string putDashesToDate(string date);
-    float seeChoosenLinesFromIcomes();
-    float seeChoosenLinesFromExpenses();
+    float seeChoosenLinesFromIcomes(char choice, int dateFrom,int dateTill);
+    float seeChoosenLinesFromExpenses(char choice, int dateFrom,int dateTill);
     void sortIncomesAndExpenses();
-    float seeChoosenLinesFromIcomesFromLastMonth();
-    float seeChoosenLinesFromExpensesFromLastMonth();
+    int setStartDate(char choice);
+    int setEndDate(char choice);
+    float writeOutExpenses(int i, float sumAmountExpenses);
+    float writeOutIncomes(int i, float sumAmountIncomes);
+    string getDate();
 
 public:
     BalanceManager(string fileNameWithIncomes,string fileNameWithExpenses, int idLoggedUser)
@@ -56,7 +59,6 @@ public:
 
     void addIncome();
     void addExpense();
-    void seeBalanceFromCurrentMonth();
-    void seeBalanceFromLastMonth();
+    void seeBalance(char choice);
 };
 #endif // BALANCEMANAGER_H
