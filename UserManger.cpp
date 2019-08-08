@@ -58,23 +58,23 @@ User UserManager::giveDataNewUser()
     string login;
     do
     {
-        cout << "Podaj login: ";
+        cout << "Give login: ";
         cin >> login;
         user.setLogin(login);
     } while (isTheLoingExist(user.getLogin()) == true);
 
     string password;
-    cout << "Podaj haslo: ";
+    cout << "Give password: ";
     cin >> password;
     user.setPassword(password);
 
     string name;
-    cout << "Podaj imie: ";
+    cout << "Give name: ";
     cin >> name;
     user.setName(name);
 
     string surname;
-    cout << "Podaj nazwisko: ";
+    cout << "Give surname: ";
     cin >> surname;
     user.setSurname(surname);
 
@@ -86,7 +86,7 @@ void UserManager::changePasswordLogged()
     if(idLoggedUser > 0)
     {
         string newPassword = "";
-        cout << "Podaj nowe haslo: ";
+        cout << "Give new password: ";
         newPassword = HelperMethods::loadTheLine();
         for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
         {
@@ -120,7 +120,7 @@ bool UserManager::isTheLoingExist(string login)
     {
         if (users[i].getLogin() == login)
         {
-            cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
+            cout << endl << "There is such a user with this login." << endl;
             return true;
         }
     }

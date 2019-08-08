@@ -3,6 +3,7 @@
 #include "Income.h"
 #include "FileWithIncomes.h"
 #include "FileWithExpenses.h"
+#include "Date.h"
 #include <string>
 #include <sstream>
 #include <ctime>
@@ -26,28 +27,13 @@ class BalanceManager
     Income putDetailsNewIncome();
     Expense putDetailsNewExpense();
 
-    bool isDateCorrect(string dateToCheck);
-    string removeDashFromDate(string dateToCheck);
-    int getTheDateFromSystem();
-    int takeTheDateFromUser();
-    string checkingPositionDashesInDate(string dateToCheck);
-    bool checkIfDateHasDigits(string dateToCheck);
-    int getYearFromDate(string dateToCheck);
-    int getMonthFromDate(string dateToCheck);
-    int getDayFromDate(string dateToCheck);
-    int returnNumberDaysfromDate(string dateToCheck);
-    string getNameOfMonth(string dateToCheck);
     void headerIncomes();
     void headerExpenses();
-    string putDashesToDate(string date);
     float seeChoosenLinesFromIcomes(char choice, int dateFrom,int dateTill);
     float seeChoosenLinesFromExpenses(char choice, int dateFrom,int dateTill);
     void sortIncomesAndExpenses();
-    int setStartDate(char choice);
-    int setEndDate(char choice);
     float writeOutExpenses(int i, float sumAmountExpenses);
     float writeOutIncomes(int i, float sumAmountIncomes);
-    string getDate();
 
 public:
     BalanceManager(string fileNameWithIncomes,string fileNameWithExpenses, int idLoggedUser)
